@@ -26,7 +26,7 @@
     <div class="form-group row">
       <div class="form-group col-md-6">
         <label for="phone">Phone No:</label>
-        <input type="text" class="form-control" id="phone" placeholder="Phone number" formControlName="number"
+        <input type="number" class="form-control" id="phone" placeholder="Phone number" formControlName="number"
           [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
         <div *ngIf=" submitted && f.number.errors" class="invalid-feedback">
           <div *ngIf="f.number.errors">Enter valid number</div>

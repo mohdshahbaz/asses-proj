@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserViewComponent } from './component/user-view/user-view.component';
 import { ToastrModule } from 'ngx-toastr';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [AppComponent, AddUserComponent, NavbarComponent, UserViewComponent],
@@ -24,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

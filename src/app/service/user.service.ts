@@ -17,4 +17,8 @@ export class UserService {
     return this.http.post(this.BASE_URL + '/save', data);
   }
 
+  GetAllUsers() {
+    return this.http.get(this.BASE_URL + '/getall');
+  }
+
 }

@@ -1,0 +1,17 @@
+table {
+    min-width: 850px;
+    width: 100%;
+  }
+
+th {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+td {
+  font-size: 1.1em;
+}
+
+.scroll {
+  overflow-x: auto;
+}

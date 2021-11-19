@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/service/user.service';
 import { validateFullName } from 'src/shared/fullname.validator';
@@ -16,7 +17,9 @@ export class AddUserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -50,17 +53,19 @@ export class AddUserComponent implements OnInit {
       return;
     }
 
-    console.log(this.userForm.value);
-
     this.createUser();
-
 
   }
 
   createUser() {
-    this.userService.CreateUser(this.userForm.value).subscribe(res => {
+
+    const postData = this.userForm.value;
+    postData.number = postData.number.toString();
+
+    this.userService.CreateUser(postData).subscribe(res => {
       if (res) {
         this.toastr.success('Data Saved!');
+        this.router.navigate(['../'], { relativeTo: this.route });
       }
     })
   }
